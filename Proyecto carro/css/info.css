@@ -1,0 +1,51 @@
+.info{
+  background-color: #f2f2f2;
+}
+.lista-desordenada li {
+  margin: 5px 0; 
+  font-size: 16px;
+  color: #686565; 
+}
+
+.seccion {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px; 
+  border: 1px solid #ffffff; 
+}
+
+.contenido-texto {
+  flex: 1; 
+  padding-right: 20px; 
+}
+
+/* Estilos para el contenido de imagen */
+.contenido-imagen {
+  flex: 1;
+}
+
+
+.contenido-imagen img {
+  max-width: 100%; 
+  height: auto; 
+}
+.img-info{
+  width: 80%;
+  border-radius: 15px;
+}
+.seccion2 {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px; 
+  border: 1px solid #f2f2f2; 
+}
+.texto-contenido-info{
+  columns: 2;
+}
+.img-desa{
+  width: 60%;
+  border-radius: 15px;
+  block-size: auto;
+}

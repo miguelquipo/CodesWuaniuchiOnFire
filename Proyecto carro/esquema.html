@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Esquema y Codigo</title>
+        <link rel="icon" href="./img/icono.png">
+        <link rel="stylesheet" href="css/contactos.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/codigo.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/galeria.css">
+  
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+     </head>
+   <!-- body -->
+   <body>
+    <nav class="menu">
+        <section class="menu__container">
+            <h1 class="menu__logo"><img class="logo2" src="./img/logo2.png"></h1>
+
+            <ul class="menu__links">
+                <li class="menu__item">
+                    <a href="./index.html" class="menu__link">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a href="./index.html#in" class="menu__link">Introducción</a>
+                </li>
+                <li class="menu__item menu__item--show">
+                    <a href="#" class="menu__link">Modulos <img src="assets/arrow.svg" class="menu__arrow"></a>
+                    <ul class="menu__nesting">
+                       <li class="menu__inside">
+                           <a href="./informacion.html" class="menu__link menu__link--inside">Información</a>
+                       </li>
+                       <li class="menu__inside">
+                           <a href="./esquema.html" class="menu__link menu__link--inside">Esquema y Codigo</a>
+                       </li>
+                       <li class="menu__inside">
+                           <a href="./datos.html" class="menu__link menu__link--inside">Datos y Estadisticas</a>
+                       </li>
+                       <li class="menu__inside">
+                           <a href="./app.html" class="menu__link menu__link--inside">Repositorios de codigos</a>
+                       </li>
+                   </ul>
+                </li>
+                <li class="menu__item">
+                   <a href="./index.html#equipo" class="menu__link">Equipo de Trabajo</a>
+               </li>
+                <li class="menu__item">
+                    <a href="./index.html#Contactos" class="menu__link">Contactos</a>
+                </li>
+                <li class="menu__item">
+                    <a href="./login.html" class="menu__link">Login</a>
+                </li>
+            </ul>
+            <div class="menu__hamburguer">
+                <img src="assets/menu.svg" class="menu__img">
+            </div>
+        </section>
+    </nav>
+    <section class="portafolio">
+        <div class="contenedor">
+            <h2 class="titulo">Esquema del circuito</h2>
+            <img class="img-esquema" src="https://i.ibb.co/XCY5ZHq/Imagen-de-Whats-App-2023-08-22-a-las-13-19-20.jpg" alt="Imagen-de-Whats-App-2023-08-22-a-las-13-19-20" border="0">
+        </div>
+    </section>
+     
+     <section class="contenedor sobre-nosotros">
+        <h2 class="titulo">Codigo de programación Arduino</h2>
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>A continuación, presentamos el código de programación del proyecto de carro bombero con sensor de obstáculos.</p>
+                <p> Para comenzar agregamos las siguientes librerías que permitirán la funcionalidad del sensor ultrasónico y la funcionalidad del servomotor.</p>
+                <p>Una vez colocada las librerías procedemos a definir los pines usados por el sensor ultrasónico que van a ser el pin22 y el pin 24 de nuestro Arduino. Además, definimos la distancia de funcionalidad y el servo.</p>
+            </div>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    #include <NewPing.h>         // SE DEFINE AL SENSOR ULTRASONICO
+    #include <Servo.h>           // SE DEFINE AL SERVOMOTOR.
+    #define TRIG_PIN 22      // SE DEFINE EL SENSOR ULTRASONICO, TRIG VA AL PIN A0 DEL ARDUINO MEGA.
+    #define ECHO_PIN 24     // SE DEFINE EL SENSOR ULTRASONICO, ECHO VA AL PIN A1 ARDUINO MEGA.
+    #define MAX_DISTANCE 200            
+    NewPing sonar(TRIG_PIN, ECHO_PIN, MAX_DISTANCE);
+    Servo myservo1;           
+            </pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>Ahora comenzamos con el código del robot de extinción de incendios agregamos las siguientes librerías las cuales son esenciales para la funcionalidad de algunos componentes del robot.</p>
+                <p> Comenzamos a definir las variables del como el servo, la posición la cual se la definirá como entero, la variable del fuego que será de tipo boolean y doublé que definirá el tipo de magnitud.</p>
+                <p>Definimos los pines de los tres sensores de llama. Adema de otras variables como la distancia y la velocidad de inicialización.</p>
+            </div>
+            <br><br><br>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    #include <Wire.h>                //include Wire.h library
+    #include <Servo.h>              //include servo.h library
+    #include <Adafruit_MLX90614.h> //include MLX90614.h library
+    dafruit_MLX90614 mlx = Adafruit_MLX90614();
+    Servo myservo;
+    int pos = 0;    
+    boolean fire = false;
+    double temp;
+    #define Left 8         // left sensor
+    #define Right 9       // right sensor
+    #define Forward 10   //front sensor      
+            </pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>Definimos los pines de conexión que usaran los dos motores que se están utilizando, los motores son dos un motor izquierdo y un motor derecho los cuales permitirán el desplazamiento en robot además del cambio de dirección.</p>
+                <p>Para esta parte el codigo esta determinado para los pines que se van a encontrar conectados al Arduino. Los dos motores deben tener una conexion independiente por los que los pines deben ser tambien independientes.</p>
+            </div>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    //Motor rigth                  
+    int LM1 = 7;            
+    int LM2 = 6;            
+    int ENA = 5;            
+    // Motor left            
+    int RM3 = 4;            
+    int RM4 = 3;               
+    int ENB = 2;            
+    int  pump = 11 ;         
+            </pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>La función setup()se ejecuta una vez al inicio del programa y se utiliza para configurar la inicialización de pines, sensores y otros componentes antes de que el bucle principal ( loop()) comience a ejecutarse.</p>
+                <ul>
+                    <li>- pinMode(Left, INPUT);: Configure el pin denominado Leftcomo una entrada digital.pinMode(Right, INPUT);: Configure el pin denominado Rightcomo una entrada digital.</li>
+                    <li>- pinMode(Forward, INPUT);: Configure el pin denominado Forwardcomo una entrada digital.pinMode(pump, OUTPUT);: Configure el pin denominado pumpcomo una salida digital.</li>
+                    <li>- mlx.begin();:Llama a la función begin()del objeto mlx, que puede ser un sensor de temperatura o algún otro tipo de sensor.</li>
+                    <li>- myservo.attach(33);: Configura un servomotor que está conectado al pin 33 del Arduino.</li>myservo.write(90);: Establece la posición inicial del servo motor en 90 grados.myservo1.attach(32);: Configure otro servomotor que esté conectado al pin 32 del Arduino.myservo1.write(110);: Establece la velocidad del segundo servomotor en 110 grados.</li>
+                    <li>- delay(2000);: Espera durante 2000 milisegundos (2 segundos).</li>
+                </li>
+            </div>
+            <br><br><br>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    void setup() {
+    pinMode(Left, INPUT);     
+        pinMode(Right, INPUT);                
+        pinMode(Forward, INPUT);
+        pinMode(pump, OUTPUT);
+        mlx.begin();
+        myservo.attach(33);
+        myservo.write(90);
+        myservo1.attach(32);       // PIN PWM DEL SERVO VA AL PIN 3 DEL ARDUINO UNO.
+        myservo1.write(110);      // VELOCIDAD DEL SERVO.
+        delay(2000);
+        distance = readPing();
+        delay(100);
+        distance = readPing();
+        delay(100);
+        distance = readPing();
+        delay(100);
+        distance = readPing();
+        delay(100);
+    }   
+            </pre>
+            <img src="" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>La función principal de este código se encuentra en la función `void loop()`, que se ejecuta repetidamente en un bucle mientras el programa Arduino está en funcionamiento. </p>
+                <ul>
+                    <li>- `delay(500);`: Introduce un retraso de 500 milisegundos (0.5 segundos) al comienzo de cada iteración del bucle `loop()`. Esto puede ser una pausa antes de que el carrito realice cualquier acción.Se declaran dos variables enteras `distanceR` y `distanceL` e inicializan en 0. Estas variables se utilizan para almacenar distancias medidas posteriormente. `float temp = mlx.readObjectTempC();`: Lee la temperatura utilizando un sensor infrarrojo (posiblemente un sensor MLX) y almacena el valor en la variable `temp` como un número de punto flotante (float).</li>
+                    <li>- `delay(100);`: Introduce otro retraso de 100 milisegundos (0.1 segundos) después de tomar la temperatura.</li>
+                    <li> -`if(distance<=15)`: Comienza una estructura condicional que verifica si la variable `distance` (que parece ser una variable no declarada en este fragmento de código) es menor o igual a 15. Esto parece estar relacionado con un sensor ultrasónico que detecta obstáculos a menos de 15 centímetros.</li>
+                </ul>
+            </div>
+            <br><br><br>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    void loop() {
+    delay(500);
+    int distanceR = 0; 
+    int distanceL =  0;
+    float temp = mlx.readObjectTempC();
+    delay(100);
+    if(distance<=15){       //SE ACTIVA EL SENSOR ULTRASONICO CUANDO DETECTA OBSTACULOS A MENOS DE 15CM.                  
+        moveStop();                  
+        delay(200);                  
+        moveBackward();     //EL CARRITO SE DETIENE Y SE VA HACIA ATRAS POR 800 MILISEGUNDOS.
+        delay(800);                      
+        moveStop();
+        delay(200);
+        distanceR = lookRight();      
+        delay(200);
+        distanceL = lookLeft();        
+        delay(200);       
+            </pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <ul>
+                    <li>- if(distanceR >= distanceL): Esta es una estructura condicional que compara las variables distanceRy distanceL. Si distanceRes mayor o igual que distanceL, entonces:
+                        <li>turnRight();: Se llama a una función que probablemente hace que el carrito gire hacia la derecha.</li>
+                        <li>moveStop();: Se llama a una función que detiene el movimiento del carrito.</li>
+                    </li>
+                    <li>- else: En caso contrario, es decir, si distanceRno es mayor o igual que distanceL, entonces:
+                        turnLeft();: Se llama a una función que probablemente hace que el carrito gire hacia la izquierda.
+                        moveStop();: Se llama a una función que detiene el movimiento del carrito.</li>
+                    <li>- moveForward();: Si ninguna de las condiciones anteriores se cumple, se llama a una función que hace que el carrito avance hacia adelante.</li>
+                    <li> -`distance = readPing();: Se lee alguna distancia (presumiblemente desde un sensor) y se almacena en la variable distance.</li>
+                    <li>delay(500);: Se introduce un retraso de 500 milisegundos (0,5 segundos).</li>
+                </ul>
+            </div>
+            <br><br><br>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    if(distanceR>=distanceL){
+        turnRight();          
+        moveStop();
+    }else {
+        turnLeft();            
+        moveStop();
+    }
+    }else{
+        moveForward();        
+    }
+        distance = readPing();
+        delay(500);
+    if (digitalRead(Left) ==1 && digitalRead(Right)==1 && digitalRead(Forward) ==1){
+        moveForward();
+    }
+    else if (digitalRead(Forward) ==0){
+        moveForward();
+    }
+    else if (digitalRead(Left) ==0){
+        turnRight();
+    }
+    else if (digitalRead(Right) ==0){
+        turnLeft();
+    }else{
+        moveForward();  
+    }                  
+            </pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>Si la temperatura supera los 35 grados Celsius, realice una serie de acciones que incluyen moverse hacia adelante, controlar un servo motor, activar una bomba o motor y luego desactivarla. La funcionalidad exacta dependerá de cómo estén implementadas las funciones y cómo estén configurados los componentes específicos en su proyecto.</p>
+                <p>if (temp > 35): Esta línea verifica si la temperatura medida ( temp) es mayor que 35 grados Celsius. Si la temperatura es mayor que 35 grados, se ejecuta el bloque de contenido del código en el siguiente par de llaves {}.Dentro del bloque de código, hay una serie de acciones que se realizan si la temperatura supera los 35 grados:</p>
+                <p>Se inicia un bucle forque incrementa gradualmente la posición del servo motor desde 50 hasta 130 grados con incrementos de 1 grado en cada iteración. Esto puede hacer que el servo gire en una dirección específica.Luego, hay otro bucle forque disminuye gradualmente la posición del servo motor desde 130 hasta 50 grados, también con incrementos de 1 grado en cada iteración. Esto podría hacer que el servo gire en la dirección opuesta.Finalmente, myservo.write(90);establece la posición del servo en 90 grados, lo que podría ser una posición neutral.</p>
+            </div>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    if (temp > 35){
+        delay (500);
+        moveForward();
+        delay (500);
+        moveStop();
+        digitalWrite(pump, HIGH);
+        delay(500);
+    posicion de servo
+    for (pos = 50; pos <= 130; pos += 1) {
+        myservo.write(pos);
+        delay(10);  
+    }          
+    for (pos = 130; pos >= 50; pos -= 1) {   
+        myservo.write(pos);
+        delay(10);
+    }
+        digitalWrite(pump,LOW);               
+        myservo.write(90);
+        fire=false;  
+    }
+    }</pre>
+    </div>
+    </div>
+    </section>
+
+    <section class="contenedor sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+            <div class="contenido-textos">
+                <p>La función lookRight() esta diseñada para medir la distancia hacia la derecha utilizando un servo motor ( myservo1) para cambiar la dirección de un sensor y un sensor de distancia ultrasónico (posiblemente, ya que no se muestra el código completo) para realizar la medición.</p>
+                <p>La función lookLeft() es similar a la función lookRight()que describí anteriormente, pero esta vez está diseñada para medir la distancia hacia la izquierda utilizando un servo motor ( myservo1) para cambiar la dirección de un sensor y un sensor de distancia ultrasónico para realizar la medición</p>
+            </div>
+            <div class="contenedor-codigo">
+                <div class="contenido-imagen">
+                    <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>            <pre id="miPre">
+    int lookRight(){
+        myservo1.write(50);    
+        delay(500);
+        int distance = readPing();
+        delay(100);
+        myservo1.write(115);        
+        return distance;
+    }     
+    int lookLeft(){
+        myservo1.write(170);
+        delay(500);
+        int distance = readPing();
+        delay(100);
+        myservo1.write(115);
+        return distance;
+        delay(100);
+    }</pre>
+    </div>
+    </div>
+</section>
+
+<section class="contenedor sobre-nosotros">
+    <div class="contenedor-sobre-nosotros">
+        <div class="contenido-textos">
+            <p>La función readPing()parece estar diseñada para medir la distancia utilizando un sensor de ultrasonido y devolver esa distancia en centímetros (cm) como un valor entero (int).</p>
+            <p>iLa función moveStop()parece ser una función diseñada para detener el movimiento de dos motores, denominados "MOTOR 1" y "MOTOR 2". Estos motores estan conectados a pines específicos en el controlador de motores.</p>
+            <p>La interpretación exacta de los pinos y cómo se controlan los motores dependerá de la configuración específica del hardware y la forma en que se haya configurado el controlador de motores en su proyecto.</p>
+            <p>La función moveForward()parece ser una función diseñada para hacer que un carrito avance. Esta función controla dos motores, "MOTOR 1" y "MOTOR 2", para lograr el movimiento hacia adelante.</p>
+        </div>
+        <div class="contenedor-codigo">
+            <div class="contenido-imagen">
+                <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>        <pre id="miPre">
+    int readPing() {
+        delay(70);
+        int cm = sonar.ping_cm();
+        if(cm==0){
+        cm = 250;}
+        return cm;
+    }
+    void moveStop() {
+    // MOTOR 1
+        digitalWrit e(ENA, 0);
+        digitalWrite(LM1, LOW);
+        digitalWrite(LM2, LOW);
+    // MOTOR 2
+        digitalWrite(ENB, 0);
+        digitalWrite(RM3, LOW);
+        digitalWrite(RM4, LOW);}
+    void moveForward() {        //CARRITO AVANZA
+        // MOTOR 1
+        analogWrite (ENA, 150);
+        digitalWrite(LM1, LOW);
+        digitalWrite(LM2, HIGH);
+        // MOTOR 2
+        analogWrite(ENB, 150);
+        digitalWrite(RM3, LOW);
+        digitalWrite(RM4, HIGH);
+    } </pre>
+</div>
+</div>
+</section>
+
+<section class="contenedor sobre-nosotros">
+    <div class="contenedor-sobre-nosotros">
+        <div class="contenido-textos">
+            <p>Las funciones moveBackward()y turnRight() son dos funciones que controlan el movimiento de un carrito o robot utilizando dos motores, "MOTOR 1" y "MOTOR 2".</p>
+            <p>La función moveBackward() esta función se encuentra diseñada para hacer que un carrito se mueva hacia atrás. Al igual que las funciones anteriores, esta función controla dos motores, "MOTOR 1" y "MOTOR 2", para lograr el movimiento hacia atrás.</p>
+            <P>La función turnRight() esta función se encuentra diseñada para hacer que un carrito gire hacia la derecha y avance al mismo tiempo. Ademas, esta función controla dos motores, "MOTOR 1" y "MOTOR 2", y también llama a la función moveForward()para lograr el movimiento adelante hacia mientras gira a la derecha. </P>
+        </div>
+        <div class="contenedor-codigo">
+            <div class="contenido-imagen">
+                <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>        <pre id="miPre">
+    void moveBackward() {        //HACIA ATRAS
+        // MOTOR 1 
+        digitalWrite(ENA, 150);
+        digitalWrite(LM1, HIGH);
+        digitalWrite(LM2, LOW);
+        // MOTOR 2
+        digitalWrite(ENB, 150);
+        digitalWrite(RM3, HIGH);
+        digitalWrite(RM4, LOW);    
+    }  
+    void turnRight() {     //GIRA A LA DERECHA Y AVANZA
+        // MOTOR 1
+        analogWrite (ENA, 150);
+        digitalWrite(LM1, HIGH);
+        digitalWrite(LM2, LOW);
+        // MOTOR 2
+        analogWrite (ENB, 150);
+        digitalWrite(RM3, LOW);
+        digitalWrite(RM4, HIGH);
+        moveForward();
+    }       
+    </pre>
+</div>
+</div>
+</section>
+
+<section class="contenedor sobre-nosotros">
+    <div class="contenedor-sobre-nosotros">
+        <div class="contenido-textos">
+            <p>La función turnLeft() esta función se encuentra diseñada para hacer que el carrito gire hacia la izquierda y avance al mismo tiempo. Esta función controla dos motores, "MOTOR 1" y "MOTOR 2", y también llama a la función moveForward()para lograr el movimiento adelante hacia mientras gira a la izquierda.
+            </p>
+        </div>
+        <div class="contenedor-codigo">
+            <div class="contenido-imagen">
+                <div class="copiar"><button id="copiarContenido"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAMtJREFUSEvtlT0KwkAQhb+cwkIQxEJv42VsvIFeyIPY2ImChbdQFtywO2SSl58VC9PmzXwzeY9JReGnKtwfBbAFDsBGHOYC7IBT0CuAJzATm0fZFVipgNenShkmSDO9UvQH1PaNSksSAteDBzAfmhYFMMrMnwTEjexXi9H2NnY9sAXFAV1+ewOEuhuwtKdiqMl2kDOwbzp2U32iDJjeoq8DVA9aD2bbBpMD7sCiq6t5X6fFq0s3CMfuCKxFSJYWBSD27SdT/mj9Ohr1GwsGOBl4mmdSAAAAAElFTkSuQmCC"/></button></div>       
+                 <pre id="miPre">
+    void turnLeft() {           //GIRA A LA IZQUIERDA Y AVANZA
+        // MOTOR 1
+        analogWrite (ENA, 150);
+        digitalWrite(LM1, LOW);
+        digitalWrite(LM2, HIGH);
+        // MOTOR 2
+        analogWrite (ENB, 150);
+        digitalWrite(RM3, HIGH);
+        digitalWrite(RM4, LOW);
+        moveForward();
+    }</pre>
+</div>
+</div>
+</section>
+
+<footer>
+    <h2 class="titulo-contactos" id="Contactos">Contactos</h2>    
+     <div class="contenedor-footer">
+         <div class="content-foo">
+             <h4>Phone</h4>
+             <p>+(593) 992562860</p>
+         </div>
+         <div class="content-foo">
+             <h4>Email</h4>
+             <p>carro.proyecto2023@gmail.com</p>
+         </div>
+         <div class="content-foo">
+             <h4>Location</h4>
+             <p>Belermo S2-02 Y, Quito 170184</p>
+         </div>
+     </div>
+     <h2 class="titulo-final">&copy; Proyecto Integrado | Carro Wuanuchiq ON FIRE</h2>
+ </footer>
+      <!-- Javascript files-->
+      <script src="js/app.js"></script>
+      <script src="js/contactos.js"></script>
+      <script src="js/button_copiar.js"> </script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/script.js"></script>
+   </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Datos y Estadisticas</title>
+        <link rel="icon" href="./img/icono.png">
+        <link rel="stylesheet" href="css/contactos.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/galeria.css">
+        <link rel="stylesheet" href="css/datos.css">
+        <link rel="stylesheet" href="css/mostrar.css">
+        
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+                  <!-- Incluir biblioteca de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.3/firebase-database.js"></script>
+    <!-- Incluir biblioteca de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    
+     </head>
+   <!-- body -->
+   <body>
+    <nav class="menu">
+        <section class="menu__container">
+            <h1 class="menu__logo"><img class="logo2" src="./img/logo2.png"></h1>
+
+            <ul class="menu__links">
+                <li class="menu__item">
+                    <a href="./index.html" class="menu__link">Home</a>
+                </li>
+                <li class="menu__item">
+                    <a href="./index.html#in" class="menu__link">Introducción</a>
+                </li>
+                <li class="menu__item menu__item--show">
+                    <a href="#" class="menu__link">Modulos <img src="assets/arrow.svg" class="menu__arrow"></a>
+                    <ul class="menu__nesting">
+                       <li class="menu__inside">
+                           <a href="./informacion.html" class="menu__link menu__link--inside">Información</a>
+                       </li>
+                       <li class="menu__inside">
+                           <a href="./esquema.html" class="menu__link menu__link--inside">Esquema y Codigo</a>
+                       </li>
+                       <li class="menu__inside">
+                           <a href="./datos.html" class="menu__link menu__link--inside">Datos y Estadisticas</a>
+                       </li>
+                       <li class="menu__inside">
+                           <a href="./app.html" class="menu__link menu__link--inside">Repositorios de codigos</a>
+                       </li>
+                   </ul>
+                </li>
+                <li class="menu__item">
+                   <a href="./index.html#equipo" class="menu__link">Equipo de Trabajo</a>
+               </li>
+                <li class="menu__item">
+                    <a href="./index.html#Contactos" class="menu__link">Contactos</a>
+                </li>
+                <li class="menu__item">
+                    <a href="./login.html" class="menu__link">Login</a>
+                </li>
+            </ul>
+            <div class="menu__hamburguer">
+                <img src="assets/menu.svg" class="menu__img">
+            </div>
+        </section>
+    </nav>
+    <section class="datos">
+        <div class="container">
+            <h2 class="titulo2">Datos de sensores</h2>
+            <div class="box" style="--i:85%;--clr:#fd0a54;">
+                <div class="circle">
+                    <h2>85<small>°C</small></h2>
+                </div>
+                <h3>Sensor 1</h3>
+            </div>
+            <div class="box" style="--i:75%;--clr:#ffbc11;">
+                <div class="circle">
+                    <h2>75<small>°C</small></h2>
+                </div>
+                <h3>sensor2</h3>
+            </div>
+            <div class="box" style="--i:58%;--clr:#0de5a8;">
+                <div class="circle">
+                    <h2>58<small>°C</small></h2>
+                </div>
+                <h3>sensor3
+                </h3>
+            </div>
+            <div class="box" style="--i:25%;--clr:#1a1ca1;">
+                <div class="circle">
+                    <h2>25<small>°C</small></h2>
+                </div>
+                <h3>sensor de calor</h3>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h1>Temperaturas:</h1>
+        <p>Temperatura ambiente: <span id="tempAmbiente">-- °C</span></p>
+        <p>Temperatura del objeto: <span id="tempObjeto">-- °C</span></p>
+    </section>
+    <footer>
+        <h2 class="titulo-contactos" id="Contactos">Contactos</h2>    
+         <div class="contenedor-footer">
+             <div class="content-foo">
+                 <h4>Phone</h4>
+                 <p>+(593) 992562860</p>
+             </div>
+             <div class="content-foo">
+                 <h4>Email</h4>
+                 <p>carro.proyecto2023@gmail.com</p>
+             </div>
+             <div class="content-foo">
+                 <h4>Location</h4>
+                 <p>Belermo S2-02 Y, Quito 170184</p>
+             </div>
+         </div>
+         <h2 class="titulo-final">&copy; Proyecto Integrado | Carro Wuanuchiq ON FIRE</h2>
+     </footer>
+
+      <!-- Javascript files-->
+      <script src="js/app.js"></script>
+      <script src="js/contactos.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/script.js"></script>
+
+      <script>
+        var tiempoDeActualizacion = 120000; // 2 minutos en milisegundos
+
+        function actualizarTemperatura() {
+            // Realiza una solicitud AJAX al ESP8266 para obtener los valores de temperatura
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Actualiza los valores en la página
+                    var data = JSON.parse(this.responseText);
+                    document.getElementById('tempAmbiente').innerHTML = data.tempAmbiente + " °C";
+                    document.getElementById('tempObjeto').innerHTML = data.tempObjeto + " °C";
+                }
+            };
+            xhttp.open('GET', '/obtener_temperatura', true); // Cambia la URL según tu configuración
+            xhttp.send();
+        }
+
+        // Función para iniciar el temporizador de actualización
+        function iniciarTemporizador() {
+            actualizarTemperatura(); // Realiza una actualización inmediata
+            setInterval(actualizarTemperatura, tiempoDeActualizacion); // Inicia el temporizador
+        }
+
+        // Llama a iniciarTemporizador para comenzar las actualizaciones
+        iniciarTemporizador();
+    </script>
+   </body>
+</html>

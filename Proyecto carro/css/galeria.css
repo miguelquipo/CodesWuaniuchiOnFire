@@ -1,0 +1,345 @@
+/* diseño Portada */
+header{
+    width: 100%;
+    height: 600px;
+    background: #ffffff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right,  hsla(19, 63%, 23%, 0.603), hsla(26, 11%, 74%, 0.603)), url(../img/portada.jpeg);
+    background: linear-gradient(to right,  hsla(19, 63%, 23%, 0.603), hsla(26, 11%, 74%, 0.603)), url(../img/portada.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+header.textos-header{
+    display: flex;
+    height: 430px;
+    width: 100%;
+}
+.textos-header h1{
+    font-size: 50px;
+    margin: 80px 90PX ;
+    font-family: Bitter;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+.wave{
+    bottom: 0;
+    width: 100%;
+}
+
+/* Portafolio */
+.titulo {
+    color: #000000;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 60px;
+    text-decoration: none;
+}
+.titulo a{
+    text-decoration: none;
+    color: #410000;
+}
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.portafolio{
+    background: #f2f2f2;
+}
+
+.galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port{
+    width: 24%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(9, 30%, 54%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 50px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+/* Equipo de trabajo */
+.equipo-trabajo{
+    background: #ffffff;
+}
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cards .card{
+    background: #F6635C;
+    display: flex;
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+    border-radius: 18px;
+}
+
+.cards .card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: block;
+}
+
+.cards .card > .contenido-texto-card{
+    width: 60%;
+    color: #fff;
+}
+
+.cards .card > .contenido-texto-card p{
+    font-weight: 300;
+    padding-top: 5px;
+}
+
+/* Informacion */
+
+.sobre-nosotros{
+    padding: 30px 0 60px 0;
+}
+.contenedor-sobre-nosotros{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.seccion{
+    background-color: #fff;
+}
+.imagen-about-us{
+    width: 48%;
+}
+
+.sobre-nosotros .contenido-textos{
+    width: 48%;
+}
+
+.contenido-textos h3{
+    margin-bottom: 15px;
+}
+
+.contenido-textos h3 span{
+    background: #4d0686;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    margin-right: 5px;
+}
+
+.contenido-textos p{
+    padding: 0px 0px 30px 15px;
+    text-align: justify;
+}
+
+/* footer */
+
+footer{
+    background: #352423;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor-footer{
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.content-foo{
+    text-align: center;
+}
+
+.content-foo h4{
+    color: #fff;
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.content-foo p{
+    color: #ffffff;
+}
+
+/* Contactos */
+.titulo-contactos{
+    text-align: center;
+    font-size: 40px;
+    margin: 0px 0 60px 0;
+    color: #ffffff;
+}
+.titulo-contactos a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.titulo-final{
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #ffffff;
+}
+
+
+
+@media screen and (max-width:900px){
+    header{
+        background-position: center;
+    }
+    .contenedor-sobre-nosotros{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sobre-nosotros .contenido-textos{
+        width: 90%;
+    }
+
+    .imagen-about-us{
+        width: 90%;
+    }
+    /* Equipo de trabjo */
+
+    .cards{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards .card{
+        width: 90%;
+    }
+
+    .cards .card:first-child{
+        margin-bottom: 30px;
+    }
+
+    /* Galeria */
+
+    .imagen-port{
+        width: 44%;
+    }
+
+}
+
+@media screen and (max-width:500px){
+    nav{
+        text-align: center;
+        padding: 30px 0 0 0;
+    }
+
+    nav > a{
+        margin-right: 5px;
+    }
+
+    /* ABOUT US */
+
+    .imagen-about-us{
+        margin-bottom: 60px;
+        width: 99%;
+    }
+
+    .sobre-nosotros .contenido-textos{
+        width: 95%;
+    }
+    
+    /* Galeria */
+
+    .imagen-port{
+        width: 95%;
+    }
+    /* Equipo de trabajo */
+
+    .cards .card{
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards .card img{
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Footer */
+
+    .contenedor-footer{
+        flex-direction: column;
+        border: none;
+    }
+
+    .content-foo{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .content-foo h4{
+        border: none;
+    }
+
+    .content-foo p{
+        color: #ccc;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 20px;
+    }
+
+    .titulo-final{
+        font-size: 20px;
+    }
+}

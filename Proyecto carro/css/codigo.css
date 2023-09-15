@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Bitter;
+}
+/*Grafico esquema*/
+
+/*Codigo de programacion*/
+.codigo{
+    background-color: #fff;
+}
+.contenedor-codigo {
+    width: 49%;
+    margin: 0 auto; 
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 5px 0;
+    max-width: 890px;
+}
+pre {
+    background-color: #fff;
+    border: 1px solid #000000;;
+    white-space: pre-wrap;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 15px;
+}
+.copiar{
+    text-align: right;
+    background-color: #fff;
+}
+.txtcodigo{
+    text-align: center;
+
+}
+.contenido-textos ul li{
+    padding: 0px 0px 20px 10px;
+    font-weight: 300;
+    text-align: justify;
+    font-size: 16px;
+}

@@ -1,0 +1,12 @@
+.conexion{
+    width: 15%;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    text-align: center;
+    columns: 2;
+}
+.subtitulos1{
+    text-align: center;
+}
+
